@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router";
-import Home from "./Pages/Home";
-import Create from "./Pages/Create";
+import Home from "./pages/Home";
+import Create from "./pages/Create";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(() => {
