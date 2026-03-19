@@ -25,7 +25,7 @@ const FullNoteState = ({ setFullNote, setEditNote, editNote, note }) => {
         <CiEdit onClick={() => setEditNote(true)} className="size-10 p-1 border dark:text-white border-black/50 dark:border-white/80 rounded-full" />
       </div>
       <div className="bg-black/40 w-full h-px dark:bg-white/80 md:mx-36"/>
-      <div className="p-5 flex-1 flex-col gap-3 overflow-auto md: mx-36">
+      <div className="p-5 flex-1 flex-col gap-3 overflow-auto md:mx-36">
         <div className="text-2xl dark:text-white md:text-5xl md:mb-5">{note.title}</div>
         <div className="dark:text-white/80 md:text-2xl">
           {note.content}
