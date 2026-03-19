@@ -68,7 +68,7 @@ const CreateForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col justify-center dark:text-white text-center gap-2 p-4">
+    <form onSubmit={handleSubmit} className="flex flex-col justify-center dark:text-white text-center gap-2 p-4 md:mx-36">
       <label htmlFor="title" className="text-xl">
         Title
       </label>

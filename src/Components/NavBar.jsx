@@ -18,7 +18,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
   ];
 
   return (
-    <div className="bg-neutral-300 dark:bg-neutral-900 dark:text-white">
+    <div className="bg-neutral-300 dark:bg-neutral-900 dark:text-white md:mx-36">
       <div className="flex items-center justify-between py-3 px-5">
         {/* TOP NAVBAR */}
         <Link

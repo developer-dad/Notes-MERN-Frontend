@@ -58,7 +58,7 @@ const EditNote = ({ setEditNote, note, setNote }) => {
 
   return (
     <div className="fixed inset-0 z-50 h-screen w-screen bg-white dark:bg-neutral-500">
-      <div className={`flex items-center justify-between p-5 ${note.color.bg}`}>
+      <div className={`flex items-center justify-between p-5 ${note.color.bg} md:mx-36`}>
         <IoArrowBackSharp
           onClick={() => setEditNote(false)}
           className="size-10 p-1 border border-black/50 dark:text-white dark:border-white/80 rounded-full"
@@ -71,8 +71,8 @@ const EditNote = ({ setEditNote, note, setNote }) => {
           className="size-10 p-1 border border-black/50 dark:text-white dark:border-white/80 rounded-full"
         />
       </div>
-      <div className="bg-black/40 w-full h-px dark:bg-white/80" />
-      <div className="p-5 flex flex-col gap-4 overflow-auto dark:text-white">
+      <div className="bg-black/40 w-full h-px dark:bg-white/80 md:mx-36" />
+      <div className="p-5 flex flex-col gap-4 overflow-auto dark:text-white md:mx-36">
         <input
           type="text"
           value={newTitle}
@@ -85,7 +85,7 @@ const EditNote = ({ setEditNote, note, setNote }) => {
           onChange={(e) => setNewContent(e.target.value)}
           className="w-full h-full rounded-2xl px-2 py-1 border dark:border-white/80"
         ></textarea>
-        <div className="flex justify-between border rounded-full p-1 dark:border-white/80">
+        <div className="flex justify-between border rounded-full p-1 dark:border-white/80 md:mr-96">
           {COLOR.map((item, index) => (
             <label key={index}>
               <input

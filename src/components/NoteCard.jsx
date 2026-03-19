@@ -33,7 +33,7 @@ const NoteCard = ({ title, content, createdAt, color, setNotes, noteId, note }) 
   return (
     <>
       <div className="px-4 py-4 flex justify-between items-center gap-3.5">
-        <div onClick={() => setFullNote(true)} className={`rounded-2xl px-5 py-3 w-full shadow-lg shadow-black/25 dark:bg-neutral-600/75 border-l-6 ${color.border}`}>
+        <div onClick={() => setFullNote(true)} className={`rounded-2xl px-5 py-3 w-full shadow-lg shadow-black/25 dark:bg-neutral-600/75 border-l-6 ${color.border} max-h-36 overflow-hidden`}>
           <div className="flex justify-center items-center m-1 text-gray-400 dark:text-white/65">
             {date}-{month}-{year} <BsDot /> {hour}:{minutes}
           </div>

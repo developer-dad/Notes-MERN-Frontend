@@ -24,7 +24,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="md:grid md:grid-cols-3 md:mx-36">
       {emptyState && (
         <div className="flex justify-center mt-10">
           <p className="text-2xl dark:text-white">Create Your First Note</p>
