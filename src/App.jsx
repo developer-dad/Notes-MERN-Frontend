@@ -22,8 +22,8 @@ const App = () => {
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main>
         <Routes>
-          <Route path="/api/v1/all-notes" element={<Home />} />
-          <Route path="api/v1/create-note" element={<Create />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
         </Routes>
       </main>
     </div>
