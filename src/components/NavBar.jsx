@@ -22,7 +22,7 @@ const NavBar = ({ darkMode, setDarkMode }) => {
       <div className="flex items-center justify-between py-3 px-5">
         {/* TOP NAVBAR */}
         <Link
-          to="/api/v1/all-notes"
+          to="/"
         >
           {/* LOGO & TEXT */}
           <div className="flex items-center gap-2">
