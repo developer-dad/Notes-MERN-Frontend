@@ -9,11 +9,11 @@ const NavBar = ({ darkMode, setDarkMode }) => {
   const TITLE = [
     {
       name: "HOME",
-      link: "/api/v1/all-notes",
+      link: "/",
     },
     {
       name: "CREATE",
-      link: "/api/v1/create-note",
+      link: "/create",
     },
   ];
 
