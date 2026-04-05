@@ -10,9 +10,14 @@ const Home = () => {
   const [emptyState, setEmptyState] = useState(null);
 
   const fetchNotes = async () => {
-    const fetchedData = await BACKEND_URL.get("/all-notes");
-    setNotes(fetchedData.data);
-    if (fetchedData.data.length === 0) {
+    const accessToken = localStorage.getItem("token")
+    const fetchedData = await BACKEND_URL.get("/api/v1/notes", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+    setNotes(fetchedData.data.data);
+    if (fetchedData.data.length === 0) { 
       setEmptyState(true);
     } else {
       setEmptyState(false);

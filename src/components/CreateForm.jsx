@@ -54,8 +54,13 @@ const CreateForm = () => {
     setErrors(newError)
     if(hasError) return
     setLoading(true)
-    const res = await BACKEND_URL.post("/create-note", {
+    const accessToken = localStorage.getItem("token")
+    const res = await BACKEND_URL.post("/api/v1/notes", {
         title, content, color
+    }, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
     })    
     
     setTitle("")

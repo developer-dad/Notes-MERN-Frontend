@@ -43,10 +43,15 @@ const EditNote = ({ setEditNote, note, setNote }) => {
     },
   ];
   const handleEdit = async (noteId) => {
-    const res = await BACKEND_URL.put(`update-note/${noteId}`, {
+    const accessToken = localStorage.getItem("token")
+    const res = await BACKEND_URL.put(`/api/v1/notes/${noteId}`, {
       title: newTitle,
       content: newContent,
       color: newColor
+    }, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
     });
     setNote((prevNotes) =>
       prevNotes.map((n) =>

@@ -5,7 +5,12 @@ import BACKEND_URL from "../api/url";
 const DeleteState = ({ setDelete, setNotes, noteId }) => {
 
   const onConfirm = async (noteId) => {
-    await BACKEND_URL.delete(`/delete-note/${noteId}`)
+    const accessToken = localStorage.getItem("token")
+    await BACKEND_URL.delete(`/api/v1/notes/${noteId}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    })
     setNotes(prev => prev.filter(note => note._id !== noteId))
     setDelete(false)
   }
