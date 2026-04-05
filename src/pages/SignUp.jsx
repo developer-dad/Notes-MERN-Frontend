@@ -21,7 +21,7 @@ const SignUp = () => {
     setLoading(true);
 
     try {
-      const res = await BACKEND_URL.post("/api/v1/user/signup", {
+      const res = await BACKEND_URL.post("/user/signup", {
         name: name.trim().toLowerCase(),
         email: email.trim().toLowerCase(),
         password,
@@ -89,7 +89,7 @@ const SignUp = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full ${loading ? "bg-gray-900" : "bg-green-500"} hover:bg-green-600 text-white py-2 rounded-md font-semibold transition disabled:opacity-50`}
+            className={`w-full ${loading ? "bg-gray-900" : "bg-blue-500"} hover:bg-blue-600 text-white py-2 rounded-md font-semibold transition disabled:opacity-50`}
           >
             {loading ? "Creating..." : "Sign Up"}
           </button>

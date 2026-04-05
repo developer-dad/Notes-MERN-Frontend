@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BACKEND_URL from "../api/url";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -17,7 +19,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await BACKEND_URL.post("/api/v1/user/login", {
+      const res = await BACKEND_URL.post("/user/login", {
         email,
         password,
       });
@@ -57,21 +59,26 @@ const Login = () => {
             />
           </div>
           {/* Password */}
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 mb-2.5">
             <label
               htmlFor="password"
               className="text-sm font-medium text-gray-600"
             >
               Password
             </label>
-            <input
-              type="password"
+            <div className="relative">
+              <input
+              type={showPassword ? "text" : "password"}
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="border rounded-md w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+            <span onClick={() => setShowPassword(prev => !prev)} className="absolute right-3 top-1/2 -translate-y-1/2">
+              {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20}/>}
+            </span>
+            </div>
           </div>
           {/* Forgot password
           <div className="text-right">

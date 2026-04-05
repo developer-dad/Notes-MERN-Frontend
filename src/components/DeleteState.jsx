@@ -6,7 +6,7 @@ const DeleteState = ({ setDelete, setNotes, noteId }) => {
 
   const onConfirm = async (noteId) => {
     const accessToken = localStorage.getItem("token")
-    await BACKEND_URL.delete(`/api/v1/notes/${noteId}`, {
+    await BACKEND_URL.delete(`/notes/${noteId}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }

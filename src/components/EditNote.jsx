@@ -44,7 +44,7 @@ const EditNote = ({ setEditNote, note, setNote }) => {
   ];
   const handleEdit = async (noteId) => {
     const accessToken = localStorage.getItem("token")
-    const res = await BACKEND_URL.put(`/api/v1/notes/${noteId}`, {
+    const res = await BACKEND_URL.put(`/notes/${noteId}`, {
       title: newTitle,
       content: newContent,
       color: newColor

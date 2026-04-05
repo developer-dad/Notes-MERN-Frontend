@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { FaRegFileLines } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeSwitch from "./ThemeSwitch";
+import BACKEND_URL from "../api/url";
 
 const NavBar = ({ darkMode, setDarkMode, name }) => {
   const [linkClicked, setLinkClicked] = useState("HOME");
@@ -14,6 +15,27 @@ const NavBar = ({ darkMode, setDarkMode, name }) => {
     localStorage.removeItem("token")
     navigate('/login')
   }
+
+const getName = async () => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const fetchedData = await BACKEND_URL.get('/user', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    console.log(fetchedData.data);
+
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+  }
+};
+
+  useEffect(() => {
+    getName()
+  }, [])
 
   const TITLE = [
     {

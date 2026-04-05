@@ -55,7 +55,7 @@ const CreateForm = () => {
     if(hasError) return
     setLoading(true)
     const accessToken = localStorage.getItem("token")
-    const res = await BACKEND_URL.post("/api/v1/notes", {
+    const res = await BACKEND_URL.post("/notes", {
         title, content, color
     }, {
       headers: {

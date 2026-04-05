@@ -11,13 +11,13 @@ const Home = () => {
 
   const fetchNotes = async () => {
     const accessToken = localStorage.getItem("token")
-    const fetchedData = await BACKEND_URL.get("/api/v1/notes", {
+    const fetchedData = await BACKEND_URL.get("/notes", {
       headers: {
         Authorization: `Bearer ${accessToken}`
       }
     });
     setNotes(fetchedData.data.data);
-    if (fetchedData.data.length === 0) { 
+    if (fetchedData.data.data.length === 0) { 
       setEmptyState(true);
     } else {
       setEmptyState(false);
