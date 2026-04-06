@@ -7,10 +7,9 @@ import { motion } from "framer-motion";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,14 +22,12 @@ const Login = () => {
         email,
         password,
       });
-      localStorage.setItem("token", res.data.accessToken)
-      window.location.href = "/dashboard"
+      localStorage.setItem("token", res.data.accessToken);
+      window.location.href = "/dashboard";
     } catch (err) {
-      setError(
-        err.response?.data?.message || "Something went wrong"
-      )
+      setError(err.response?.data?.message || "Something went wrong");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -98,10 +95,10 @@ const Login = () => {
                 className="border rounded-md w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <span
-                onClick={() => setShowPassword(prev => !prev)}
+                onClick={() => setShowPassword((prev) => !prev)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
               >
-                {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20}/>}
+                {showPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
               </span>
             </div>
           </motion.div>
@@ -116,6 +113,17 @@ const Login = () => {
               {error}
             </motion.p>
           )}
+
+          {/* RESET PASSWORD */}
+          <div className="w-full text-right mt-1">
+            <Link
+              type="button"
+              className="text-sm text-red-500 hover:text-red-600 hover:underline transition"
+              to='/forget-password'
+            >
+              Forgot password?
+            </Link>
+          </div>
 
           {/* Button */}
           <motion.button

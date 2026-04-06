@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import PasswordReset from "./pages/PasswordReset";
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
         } />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/forget-password" element={<PasswordReset />}/>
         <Route path="/dashboard" element={
           isAuth ? <><NavBar darkMode={darkMode} setDarkMode={setDarkMode} /> <Home /></> : <Navigate to='/login' />
         } />
